@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Welcome Shivoham</title>
     <link
       rel="stylesheet"
-      href="https://bootswatch.com/4/sketchy/bootstrap.min.css"
+      href="https://bootswatch.com/4/pulse/bootstrap.min.css"
     />
-    <title>YourSysfo</title>
   </head>
   <body>
-    <h1>My App</h1>
+    <div class="container">
+      <h1 style="text-align: center">Your SysFo</h1>
+
+      <script>
+        var output = `
+        <br/><h2 class="page-header">App Version Data</h2>
+      <ul class="list-group">
+        <li class="list-group-item">Node: ${process.versions.node}</li>
+        <li class="list-group-item">Chrome: ${process.versions.chrome}</li>
+        <li class="list-group-item">Electron: ${process.versions.electron}</li>
+      </ul>
+<br/>
+      <h2 class="page-header">System specifications</h2>
+      <ul class="list-group">
+        <li class="list-group-item">System Architecture: ${process.arch}</li>
+        <li class="list-group-item">Processor Identifier: ${
+          process.env.PROCESSOR_IDENTIFIER
+        }</li>
+        <li class="list-group-item">Printer: ${process.env.PRINTER}</li>
+      </ul>`;
+        document.write(output);
+      </script>
+    </div>
+
+    <script>
+      // You can also require other files to run in this process
+      require("./renderer.js");
+    </script>
   </body>
-  <script>
-    require("./renderer.js");
-  </script>
 </html>
